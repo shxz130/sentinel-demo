@@ -15,10 +15,7 @@ import com.alibaba.csp.sentinel.slots.block.flow.ClusterFlowConfig;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by jetty on 2019/3/21.
@@ -32,15 +29,15 @@ public class EmbeddedClient {
         setToClient();
         while (true){
             try{
-                Thread.sleep(80);
+                Thread.sleep(100);
             }catch (Exception e){
                 e.printStackTrace();
             }
             try{
                 Entry entry=SphU.entry("a");
-                System.out.println("pass");
+                System.out.println(new Date()+" "+"pass");
             }catch (Exception e){
-                System.out.println("block");
+                System.out.println(new Date()+" "+"block");
             }
         }
     }
